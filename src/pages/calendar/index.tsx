@@ -32,7 +32,7 @@ const MyCalendarPage: NextPage = () => {
                 router.replace({ hash: date.format('YYYY-MM-DD') }, undefined, { scroll: true });
               }}
               fullscreen={false}
-              headerRender={({ value, type, onChange, onTypeChange }) => {
+              headerRender={({ value, onChange }) => {
                 const start = 0;
                 const end = 12;
                 const monthOptions = [];
