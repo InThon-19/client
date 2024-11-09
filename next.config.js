@@ -7,6 +7,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'e7.pngegg.com' }],
+  },
+
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

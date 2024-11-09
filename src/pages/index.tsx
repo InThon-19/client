@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 
-import NavigationBar from '@component/common/NavigationBar';
 import RatingChart from '@component/common/RatingChart';
+import PopularFeedContainer from '@container/root/PopularFeedContainer';
 
 const mockData = [
   { date: '7일', rate: 3.2 },
@@ -17,7 +17,7 @@ const PageRoot: NextPage = () => {
   return (
     <div>
       <RatingChart data={mockData} />
-      <NavigationBar />
+      <PopularFeedContainer />
     </div>
   );
 };

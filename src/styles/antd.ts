@@ -16,6 +16,7 @@ export const theme: ThemeConfig = {
     },
     Typography: {
       titleMarginBottom: 0,
+      titleMarginTop: 0,
     },
   },
 };

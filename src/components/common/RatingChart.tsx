@@ -18,7 +18,7 @@ const RatingChart = ({ data }: Props) => {
     setIsClient(true);
   }, []);
 
-  if (!isClient) return null;
+  if (!isClient) return <div style={{ height: 300 }} />;
 
   return (
     <Flex justify='end'>
