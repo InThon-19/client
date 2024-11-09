@@ -6,7 +6,6 @@ import { ThemeConfig } from 'antd';
  */
 export const theme: ThemeConfig = {
   token: {
-    colorPrimary: '#eeeeee', // main colorPrimary
     borderRadius: 0,
   },
 };

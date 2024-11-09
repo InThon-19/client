@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import { useEffect } from 'react';
 
 import { userAtom } from '@/lib/jotai/user';
+import WriteFloatButton from '@component/common/FloatButton';
 import { theme } from '@style/antd';
 import '@style/tailwind.css';
 import { observeAuthState } from '@util/api/auth';
@@ -30,10 +31,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <main className={`${pretendard.variable} font-pretendard flex justify-center`}>
-      <div className='max-w-[360px] w-full'>
+      <div className='relative max-w-[480px] w-full'>
         <QueryClientProvider client={client}>
           <ConfigProvider theme={theme}>
             <Component {...pageProps} />
+            <WriteFloatButton />
           </ConfigProvider>
         </QueryClientProvider>
       </div>
