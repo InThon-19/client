@@ -5,11 +5,11 @@ import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import { useEffect } from 'react';
 
-import { writePostAtom } from '@/lib/jotai/modal';
 import { userAtom } from '@/lib/jotai/user';
 import WriteFloatButton from '@component/common/FloatButton';
 import Layout from '@component/common/Layout';
 import CommentList from '@container/common/CommentList';
+import MenuDrawer from '@container/common/MenuDrawer';
 import WritePostModal from '@container/common/WritePostModal';
 import { theme } from '@style/antd';
 import '@style/tailwind.css';
@@ -28,7 +28,6 @@ const client = new QueryClient({
 
 export default function App({ Component, pageProps }: AppProps) {
   const [, setUser] = useAtom(userAtom);
-  const [writePostModalOpen, setWritePostModalOpen] = useAtom(writePostAtom);
 
   useEffect(() => {
     observeAuthState((uid) => setUser({ uid }));
@@ -45,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <WriteFloatButton />
                 <WritePostModal />
                 <CommentList />
+                <MenuDrawer />
               </Layout>
             </div>
           </main>

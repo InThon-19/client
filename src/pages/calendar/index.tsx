@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 
+import WithAuth from '@/lib/hoc/WithAuth';
 import FeedList from '@component/common/FeedList';
 
 const SAMPLE_IMAGE =
@@ -113,4 +114,4 @@ const MyCalendarPage: NextPage = () => {
   );
 };
 
-export default MyCalendarPage;
+export default WithAuth(MyCalendarPage);

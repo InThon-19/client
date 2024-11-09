@@ -6,11 +6,10 @@ import CommentItem from '@component/comments/CommentItem';
 
 const CommentList = () => {
   const [commentListId, setCommentListId] = useAtom(commentsPostIdAtom);
-  if (!commentListId) return null;
 
   return (
     <Drawer
-      open={true}
+      open={!!commentListId}
       onClose={() => setCommentListId(null)}
       placement='bottom'
       closeIcon={null}

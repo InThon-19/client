@@ -1,9 +1,10 @@
-import { Layout, Typography } from 'antd';
+import { Layout } from 'antd';
+import Image from 'next/image';
 
 const Header = () => {
   return (
-    <Layout.Header className='flex items-center'>
-      <Typography.Title level={1}>A..BCD</Typography.Title>
+    <Layout.Header className='flex items-center mb-4 px-4'>
+      <Image src='/icons/logo.svg' alt='' width={100} height={40} />
     </Layout.Header>
   );
 };

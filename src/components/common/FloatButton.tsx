@@ -1,4 +1,4 @@
-import { PlusOutlined } from '@ant-design/icons';
+import { VideoCameraAddOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 import { useAtom } from 'jotai';
 
@@ -12,7 +12,7 @@ const WriteFloatButton = () => {
       <FloatButton
         type='primary'
         style={{ insetInlineEnd: 'unset' }}
-        icon={<PlusOutlined />}
+        icon={<VideoCameraAddOutlined />}
         onClick={() => setWritePostModalOpen(true)}
       />
     </div>
