@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 import { client } from '.';
 
@@ -15,6 +15,7 @@ export const checkUserExists = async (uid: string) => {
 
 export const logout = async () => {
   try {
+    await signOut(auth);
     localStorage.removeItem('uid');
   } catch (error) {
     console.error(error);
