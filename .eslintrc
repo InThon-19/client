@@ -1,0 +1,24 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:import/recommended", "plugin:import/typescript", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          { "pattern": "next", "group": "external", "position": "before" },
+          { "pattern": "react", "group": "external", "position": "before" }
+        ],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "distinctGroup": false,
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true
+      }
+    ]
+  }
+}
