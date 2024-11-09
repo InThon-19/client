@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 
 import RatingChart from '@component/common/RatingChart';
-import PopularFeedContainer from '@container/root/PopularFeedContainer';
+import PopularFeedContainer from '@container/main/PopularFeedContainer';
 
 const mockData = [
   { date: '7일', rate: 3.2 },
