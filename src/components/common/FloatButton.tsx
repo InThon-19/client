@@ -1,10 +1,20 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
+import { useAtom } from 'jotai';
+
+import { writePostAtom } from '@/lib/jotai/modal';
 
 const WriteFloatButton = () => {
+  const [, setWritePostModalOpen] = useAtom(writePostAtom);
+
   return (
     <div className='absolute right-12'>
-      <FloatButton type='primary' style={{ insetInlineEnd: 'unset' }} icon={<PlusOutlined />} />
+      <FloatButton
+        type='primary'
+        style={{ insetInlineEnd: 'unset' }}
+        icon={<PlusOutlined />}
+        onClick={() => setWritePostModalOpen(true)}
+      />
     </div>
   );
 };
