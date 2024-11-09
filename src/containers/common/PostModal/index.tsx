@@ -18,18 +18,16 @@ const PostModal = () => {
       footer={null}
       style={{ maxWidth: 400 }}
       destroyOnClose>
-      <div className='w-full aspect-square relative'>
-        {post?.Image && (
-          <>
-            <Image src={post?.Image} alt='이미지' fill style={{ objectFit: 'contain' }} />
-            <Flex className='absolute left-2 bottom-16' vertical>
-              <Typography.Text className='text-white'>{post.What}</Typography.Text>
-              <Typography.Text className='text-white'>{post.When}</Typography.Text>
-              <Typography.Text className='text-white'>{post.How}</Typography.Text>
-              <Typography.Text className='text-white'>{post.What}</Typography.Text>
-            </Flex>
-          </>
-        )}
+      <div className='bg-black relative'>
+        <div className='w-full aspect-square relative'>
+          {post?.Image && <Image src={post?.Image} alt='이미지' fill style={{ objectFit: 'cover' }} />}
+        </div>
+        <Flex className='absolute left-2 bottom-2' vertical>
+          <Typography.Text className='text-white'>{post.What}</Typography.Text>
+          <Typography.Text className='text-white'>{post.When}</Typography.Text>
+          <Typography.Text className='text-white'>{post.How}</Typography.Text>
+          <Typography.Text className='text-white'>{post.What}</Typography.Text>
+        </Flex>
       </div>
     </Modal>
   );
