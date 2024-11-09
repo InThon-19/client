@@ -15,7 +15,6 @@ export const checkUserExists = async (uid: string) => {
 
 export const logout = async () => {
   try {
-    await signOut(auth);
     localStorage.removeItem('uid');
   } catch (error) {
     console.error(error);

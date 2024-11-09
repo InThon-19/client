@@ -19,7 +19,7 @@ export interface PostDto {
   }[];
   Comments: {
     _id: string;
-    UserId: string;
+    UserId: any;
     Rating: number;
     Body: string;
   }[];
