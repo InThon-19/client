@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 import RatingChart from '@component/common/RatingChart';
 import PopularFeedContainer from '@container/main/PopularFeedContainer';
