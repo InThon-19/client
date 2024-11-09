@@ -1,4 +1,4 @@
-import { Drawer, Typography } from 'antd';
+import { Drawer, Flex, Typography } from 'antd';
 import { useAtom } from 'jotai';
 
 import PostCommentForm from './PostCommentForm';
@@ -25,9 +25,11 @@ const CommentList = () => {
       }}
       title=<Typography.Title level={4}>평가 목록</Typography.Title>>
       {commentList.length === 0 ? (
-        <Typography.Text strong className='w-full mt-10 text-center'>
-          평가가 없습니다.
-        </Typography.Text>
+        <Flex justify='center'>
+          <Typography.Text strong className='mt-10'>
+            평가가 없습니다.
+          </Typography.Text>
+        </Flex>
       ) : (
         <>
           {commentList.map((item, idx) => (

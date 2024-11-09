@@ -36,16 +36,14 @@ const FeedList = ({ records, ratings, selfRating, comments, postId }: Props) => 
           ))}
         </Flex>
         <Flex justify='space-between' align='center' className='text-2xl mt-2 px-2'>
-          {ratings.count > 0 && (
-            <Flex
-              gap={4}
-              align='center'
-              className='cursor-pointer'
-              onClick={() => setComments({ postId, commentList: comments })}>
-              <StarFilled />
-              <Typography.Text>{`${ratings?.value.toFixed(1)} (${ratings?.count})`}</Typography.Text>
-            </Flex>
-          )}
+          <Flex
+            gap={4}
+            align='center'
+            className='cursor-pointer'
+            onClick={() => setComments({ postId, commentList: comments })}>
+            <StarFilled />
+            <Typography.Text>{`${ratings?.value.toFixed(1)} (${ratings?.count})`}</Typography.Text>
+          </Flex>
           {selfRating && (
             <div className='relative'>
               <HeartFilled className='text-3xl' />

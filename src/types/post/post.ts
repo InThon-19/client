@@ -1,6 +1,6 @@
 export interface PostDto {
   _id: string;
-  UserId: string;
+  UserId: any;
   Visibility: boolean;
   Date: string;
   Records: {

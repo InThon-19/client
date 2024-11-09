@@ -11,11 +11,12 @@ interface Props {
 const PopularFeedPerson = ({ post, rank }: Props) => {
   const { UserId, Records, Comments, comment_count, Rating, SelfRating } = post;
 
+  console.log(post);
   return (
     <Flex gap={8} vertical>
       <Flex align='center' gap={8}>
         <Typography.Title level={4}>{rank}</Typography.Title>
-        <Typography.Title level={5}>{UserId}</Typography.Title>
+        <Typography.Title level={5}>{UserId.Nickname}</Typography.Title>
       </Flex>
       <FeedList
         postId={post._id}
