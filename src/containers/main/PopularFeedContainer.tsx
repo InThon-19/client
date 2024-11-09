@@ -13,7 +13,7 @@ const PopularFeedContainer = () => {
         {"Today's Oscar"}
       </Typography.Title>
       <Flex gap={20} vertical className='mt-2 px-4'>
-        {data?.map((oscar) => <PopularFeedPerson key={oscar._id} oscar={oscar} />)}
+        {data?.map((post, idx) => <PopularFeedPerson key={post._id} post={post} rank={idx + 1} />)}
       </Flex>
     </div>
   );
