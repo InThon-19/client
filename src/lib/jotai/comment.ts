@@ -1,3 +1,5 @@
 import { atom } from 'jotai';
 
-export const commentsPostIdAtom = atom<number | null>(null);
+import { PostDto } from '@type/post/post';
+
+export const commentsAtom = atom<PostDto['Comments'] | null>(null);

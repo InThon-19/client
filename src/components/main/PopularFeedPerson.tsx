@@ -1,19 +1,20 @@
-import { HeartFilled, StarFilled } from '@ant-design/icons';
 import { Flex, Typography } from 'antd';
-import Image from 'next/image';
 
 import FeedList from '@component/common/FeedList';
-import { PopularFeed } from '@type/main/item';
+import { PostDto } from '@type/post/post';
 
 interface Props {
-  feed: PopularFeed;
+  oscar: PostDto;
+  rank: number;
 }
 
-const PopularFeedPerson = ({ feed }: Props) => {
+const PopularFeedPerson = ({ oscar, rank }: Props) => {
+  const { Records } = oscar;
+
   return (
-    <Flex key={feed.rank} gap={8} vertical>
+    <Flex gap={8} vertical>
       <Flex align='center' gap={8}>
-        <Typography.Title level={4}>{feed.rank}</Typography.Title>
+        <Typography.Title level={4}>{rank}</Typography.Title>
         <Typography.Title level={5}>{feed.username}</Typography.Title>
       </Flex>
       <FeedList images={feed.images} ratings={feed.ratings} />

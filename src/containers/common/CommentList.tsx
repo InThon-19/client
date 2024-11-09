@@ -1,16 +1,16 @@
 import { Drawer, Typography } from 'antd';
 import { useAtom } from 'jotai';
 
-import { commentsPostIdAtom } from '@/lib/jotai/comment';
+import { commentsAtom } from '@/lib/jotai/comment';
 import CommentItem from '@component/comments/CommentItem';
 
 const CommentList = () => {
-  const [commentListId, setCommentListId] = useAtom(commentsPostIdAtom);
+  const [comments, setComments] = useAtom(commentsAtom);
 
   return (
     <Drawer
-      open={!!commentListId}
-      onClose={() => setCommentListId(null)}
+      open={!!comments}
+      onClose={() => setComments(null)}
       placement='bottom'
       closeIcon={null}
       height={'70%'}
@@ -20,9 +20,18 @@ const CommentList = () => {
         body: { padding: 0 },
       }}
       title=<Typography.Title level={4}>평가 목록</Typography.Title>>
-      {Array.from({ length: 50 }, (_, idx) => (
-        <CommentItem key={idx} />
-      ))}
+      {comments &&
+        (comments.length === 0 ? (
+          <Typography.Text strong className='w-full mt-10 text-center'>
+            평가가 없습니다.
+          </Typography.Text>
+        ) : (
+          <>
+            {comments.map((item, idx) => (
+              <CommentItem key={idx} comment={item} />
+            ))}
+          </>
+        ))}
     </Drawer>
   );
 };

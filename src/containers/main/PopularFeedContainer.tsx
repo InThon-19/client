@@ -1,42 +1,11 @@
 import { Flex, Typography } from 'antd';
 
 import PopularFeedPerson from '@component/main/PopularFeedPerson';
-import { PopularFeed } from '@type/main/item';
-
-const SAMPLE_IMAGE_URL =
-  'https://e7.pngegg.com/pngimages/97/276/png-clipart-pokemon-eevee-illustration-pokemon-go-pokemon-x-and-y-pikachu-eevee-pokemon-mammal-vertebrate-thumbnail.png';
+import { useQuery } from '@hook/react-query/useQuery';
+import { PostDto } from '@type/post/post';
 
 const PopularFeedContainer = () => {
-  const mockData: PopularFeed[] = [
-    {
-      id: 1,
-      rank: 1,
-      username: 'KYUMIN',
-      ratings: { value: 4.8, count: 190, self: 3.2 },
-      images: Array.from({ length: 3 }, () => SAMPLE_IMAGE_URL),
-    },
-    {
-      id: 2,
-      rank: 2,
-      username: 'Seongjin',
-      ratings: { value: 3.8, count: 190, self: 4.8 },
-      images: Array.from({ length: 4 }, () => SAMPLE_IMAGE_URL),
-    },
-    {
-      id: 3,
-      rank: 3,
-      username: 'Sangjin',
-      ratings: { value: 2.2, count: 190, self: 4.8 },
-      images: Array.from({ length: 5 }, () => SAMPLE_IMAGE_URL),
-    },
-    {
-      id: 4,
-      rank: 4,
-      username: 'Sanghoon',
-      ratings: { value: 3.2, count: 190, self: 4.8 },
-      images: Array.from({ length: 6 }, () => SAMPLE_IMAGE_URL),
-    },
-  ];
+  const { data } = useQuery<PostDto[]>({ queryKey: ['/api/post/oscar'], options: { enabled: false } });
 
   return (
     <div>
@@ -44,7 +13,7 @@ const PopularFeedContainer = () => {
         {"Today's Oscar"}
       </Typography.Title>
       <Flex gap={20} vertical className='mt-2 px-4'>
-        {mockData?.map((feed) => <PopularFeedPerson key={feed.id} feed={feed} />)}
+        {data?.map((oscar) => <PopularFeedPerson key={oscar._id} oscar={oscar} />)}
       </Flex>
     </div>
   );

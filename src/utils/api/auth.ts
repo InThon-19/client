@@ -1,5 +1,7 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
+import { client } from '.';
+
 import { auth } from '@/lib/firebase';
 
 export const logout = async () => {
@@ -22,4 +24,12 @@ export const observeAuthState = (callback: (uid: string) => void) => {
 
     localStorage.removeItem('user'); // 로그아웃 시 로컬 저장소에서 제거
   });
+};
+
+export const register = async (userId: string, data: any) => {
+  try {
+    await client.post(`/api/user/${userId}`, { data });
+  } catch (error) {
+    console.error(error);
+  }
 };
