@@ -1,18 +1,19 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const WithAuth = <P extends {}>(WrappedComponent: React.ComponentType<P>) => {
   const AuthenticatedComponent = (props: P) => {
     const router = useRouter();
-    const isAuthenticated = typeof window !== 'undefined' && localStorage.getItem('user');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-      if (!isAuthenticated) {
-        router.replace('/login');
-      }
-    }, [router, isAuthenticated]);
+      const isAuthenticated = localStorage.getItem('uid');
+      if (!isAuthenticated) router.replace('/login');
 
-    if (!isAuthenticated) return null;
+      setIsLoading(false);
+    }, [router]);
+
+    if (isLoading) return null;
 
     return <WrappedComponent {...props} />;
   };

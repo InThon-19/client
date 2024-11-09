@@ -16,11 +16,16 @@ const MenuDrawer = () => {
     setIsMenuDrawerOpen(false);
   }, [router, setIsMenuDrawerOpen]);
 
+  const handleLogout = async () => {
+    await logout();
+    router.replace('/');
+  };
+
   return (
     <Drawer open={isMenuDrawerOpen} onClose={() => setIsMenuDrawerOpen(false)} closeIcon={null} width={300}>
       {user.uid ? (
         <Flex vertical>
-          <Typography.Text className='flex items-center h-10 w-full cursor-pointer' onClick={logout}>
+          <Typography.Text className='flex items-center h-10 w-full cursor-pointer' onClick={handleLogout}>
             로그아웃
           </Typography.Text>
           <Typography.Text className='flex items-center h-10 w-full cursor-pointer'>회원탈퇴</Typography.Text>

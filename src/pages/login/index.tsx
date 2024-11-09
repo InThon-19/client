@@ -12,7 +12,6 @@ const LoginPage = () => {
 
   useEffect(() => {
     observeAuthState(() => {
-      alert('로그인이 되어 있다.');
       router.replace('/');
     });
   }, [router]);
@@ -21,6 +20,8 @@ const LoginPage = () => {
     try {
       const { user } = await signInWithPopup(auth, provider.google);
       localStorage.setItem('uid', user.uid);
+
+      router.push({ pathname: '/login' });
     } catch (error) {
       console.error(error);
     }
