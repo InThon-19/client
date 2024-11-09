@@ -1,4 +1,4 @@
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 import { client } from '.';
 
@@ -30,7 +30,7 @@ export const observeAuthState = (callback: (uid: string) => void) => {
       return;
     }
 
-    localStorage.removeItem('user'); // 로그아웃 시 로컬 저장소에서 제거
+    localStorage.removeItem('uid'); // 로그아웃 시 로컬 저장소에서 제거
   });
 };
 
