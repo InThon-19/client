@@ -10,6 +10,7 @@ import WriteFloatButton from '@component/common/FloatButton';
 import Layout from '@component/common/Layout';
 import CommentList from '@container/common/CommentList';
 import MenuDrawer from '@container/common/MenuDrawer';
+import PostModal from '@container/common/PostModal';
 import WritePostModal from '@container/common/WritePostModal';
 import { theme } from '@style/antd';
 import '@style/tailwind.css';
@@ -43,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Component {...pageProps} />
                 <WriteFloatButton />
                 <WritePostModal />
+                <PostModal />
                 <CommentList />
                 <MenuDrawer />
               </Layout>

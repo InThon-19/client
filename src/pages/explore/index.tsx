@@ -25,6 +25,7 @@ const ExplorePage = () => {
         <Flex key={item._id} gap={8} vertical>
           <Typography.Title level={5}>{item.UserId.Nickname}</Typography.Title>
           <FeedList
+            postId={item._id}
             records={item.Records}
             ratings={{
               value: item.Rating,

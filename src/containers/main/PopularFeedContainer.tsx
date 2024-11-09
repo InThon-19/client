@@ -7,7 +7,6 @@ import { PostDto } from '@type/post/post';
 const PopularFeedContainer = () => {
   const { data } = useQuery<{ data: { data: PostDto[] } }>({ queryKey: ['/post/oscar'] });
 
-  console.log(data?.data.data);
   return (
     <div>
       <Typography.Title level={3} className='ml-2'>

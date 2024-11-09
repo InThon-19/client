@@ -24,8 +24,6 @@ const MyCalendarPage: NextPage = () => {
     options: { enabled: !!user },
   });
 
-  console.log(data?.data.data);
-
   return (
     <Flex className='h-[calc(100vh-100px)] overflow-y-auto' vertical>
       <div className='relative min-h-[40px]'>
@@ -112,6 +110,7 @@ const MyCalendarPage: NextPage = () => {
             <Flex gap={8} className='px-1' id={dayjs(item.Date).format('YYYY-MM-DD')} vertical>
               <Typography.Title level={5}>{dayjs(item.Date).format('YYYY-MM-DD')}</Typography.Title>
               <FeedList
+                postId={item._id}
                 records={item.Records}
                 ratings={{ value: item.Rating, count: item.CommentsNum }}
                 selfRating={item.SelfRating}

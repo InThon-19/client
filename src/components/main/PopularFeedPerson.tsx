@@ -18,6 +18,7 @@ const PopularFeedPerson = ({ post, rank }: Props) => {
         <Typography.Title level={5}>{UserId}</Typography.Title>
       </Flex>
       <FeedList
+        postId={post._id}
         records={Records}
         ratings={{ value: Rating, count: comment_count }}
         selfRating={SelfRating}
