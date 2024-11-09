@@ -1,6 +1,7 @@
 import { Drawer, Flex, Typography } from 'antd';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 import { menuDrawerAtom } from '@/lib/jotai/drawer';
 import { userAtom } from '@/lib/jotai/user';
@@ -10,6 +11,10 @@ const MenuDrawer = () => {
   const router = useRouter();
   const [user] = useAtom(userAtom);
   const [isMenuDrawerOpen, setIsMenuDrawerOpen] = useAtom(menuDrawerAtom);
+
+  useEffect(() => {
+    setIsMenuDrawerOpen(false);
+  }, [router, setIsMenuDrawerOpen]);
 
   return (
     <Drawer open={isMenuDrawerOpen} onClose={() => setIsMenuDrawerOpen(false)} closeIcon={null} width={300}>
