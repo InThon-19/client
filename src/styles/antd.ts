@@ -12,6 +12,7 @@ export const theme: ThemeConfig = {
   components: {
     Layout: {
       headerBg: '#ffffff',
+      headerPadding: 8,
     },
     Typography: {
       titleMarginBottom: 0,

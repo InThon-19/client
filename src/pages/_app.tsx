@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ConfigProvider theme={theme}>
         <AntdLayout style={{ backgroundColor: '#ffffff' }}>
           <main className={`${pretendard.variable} font-pretendard flex justify-center`}>
-            <div className='relative max-w-[480px] w-full'>
+            <div className='relative max-w-[480px] w-full min-h-dvh border-x-2'>
               <Layout>
                 <Component {...pageProps} />
                 <WriteFloatButton />

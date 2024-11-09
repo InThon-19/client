@@ -11,9 +11,9 @@ const Layout = ({ children }: Props) => {
   return (
     <div>
       <Header className='flex items-center'>
-        <Title level={1}>ABCD</Title>
-        <Content>{children}</Content>
+        <Title level={1}>A..BCD</Title>
       </Header>
+      <Content>{children}</Content>
     </div>
   );
 };
