@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ConfigProvider, Layout as AntdLayout, Modal } from 'antd';
+import { ConfigProvider, Layout as AntdLayout, Modal, Drawer } from 'antd';
 import { useAtom } from 'jotai';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
@@ -9,6 +9,7 @@ import { writePostAtom } from '@/lib/jotai/modal';
 import { userAtom } from '@/lib/jotai/user';
 import WriteFloatButton from '@component/common/FloatButton';
 import Layout from '@component/common/Layout';
+import CommentList from '@container/common/CommentList';
 import WritePost from '@container/modal/WritePost';
 import { theme } from '@style/antd';
 import '@style/tailwind.css';
@@ -52,6 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   destroyOnClose>
                   <WritePost />
                 </Modal>
+                <CommentList />
               </Layout>
             </div>
           </main>
