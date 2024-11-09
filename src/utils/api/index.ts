@@ -5,7 +5,7 @@ class ApiClient {
 
   constructor(options?: CreateAxiosDefaults) {
     this.client = axios.create({
-      baseURL: 'http://localhost:4000', // add Default API URL
+      baseURL: process.env.NEXT_PUBLIC_API_URL, // add Default API URL
       withCredentials: true,
       ...options,
     });
