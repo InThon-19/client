@@ -14,6 +14,7 @@ const RootContainer = ({ query }: Props) => {
     queryKey: ['/api', query],
     options: { enabled: false },
   });
+
   return <ExampleComp />;
 };
 

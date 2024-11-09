@@ -1,10 +1,14 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider } from 'antd';
+import { useAtom } from 'jotai';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
+import { useEffect } from 'react';
 
+import { userAtom } from '@/lib/jotai/user';
 import { theme } from '@style/antd';
 import '@style/tailwind.css';
+import { observeAuthState } from '@util/api/auth';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -18,13 +22,21 @@ const client = new QueryClient({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [, setUser] = useAtom(userAtom);
+
+  useEffect(() => {
+    observeAuthState((uid) => setUser({ uid }));
+  }, [setUser]);
+
   return (
-    <main className={`${pretendard.variable} font-pretendard`}>
-      <QueryClientProvider client={client}>
-        <ConfigProvider theme={theme}>
-          <Component {...pageProps} />;
-        </ConfigProvider>
-      </QueryClientProvider>
+    <main className={`${pretendard.variable} font-pretendard flex justify-center`}>
+      <div className='max-w-[360px] w-full'>
+        <QueryClientProvider client={client}>
+          <ConfigProvider theme={theme}>
+            <Component {...pageProps} />
+          </ConfigProvider>
+        </QueryClientProvider>
+      </div>
     </main>
   );
 }

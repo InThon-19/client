@@ -17,6 +17,8 @@
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
     "date-fns": "^4.1.0",
+    "firebase": "^11.0.1",
+    "jotai": "^2.10.1",
     "next": "^14",
     "postcss": "^8.4.47",
     "rc-picker": "^4.7.1",
