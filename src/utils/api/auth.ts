@@ -4,6 +4,15 @@ import { client } from '.';
 
 import { auth } from '@/lib/firebase';
 
+export const checkUserExists = async (uid: string) => {
+  try {
+    await client.get(`/user/${uid}`);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 export const logout = async () => {
   try {
     await signOut(auth);
@@ -26,9 +35,16 @@ export const observeAuthState = (callback: (uid: string) => void) => {
   });
 };
 
-export const register = async (userId: string, data: any) => {
+export const register = async (
+  userId: string,
+  data: {
+    Nickname: string | null;
+    Email: string | null;
+    ProfileImage: string | null;
+  },
+) => {
   try {
-    await client.post(`/api/user/${userId}`, { data });
+    await client.post(`/user/${userId}`, data);
   } catch (error) {
     console.error(error);
   }

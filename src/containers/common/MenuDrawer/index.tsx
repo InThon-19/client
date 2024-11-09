@@ -23,7 +23,7 @@ const MenuDrawer = () => {
 
   return (
     <Drawer open={isMenuDrawerOpen} onClose={() => setIsMenuDrawerOpen(false)} closeIcon={null} width={300}>
-      {user.uid ? (
+      {user?.uid ? (
         <Flex vertical>
           <Typography.Text className='flex items-center h-10 w-full cursor-pointer' onClick={handleLogout}>
             로그아웃

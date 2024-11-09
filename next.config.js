@@ -8,7 +8,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'e7.pngegg.com' }],
+    remotePatterns: [{ protocol: 'https', hostname: 'storage.googleapis.com' }],
   },
 
   webpack: (config) => {

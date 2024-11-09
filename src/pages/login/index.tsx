@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 import { auth, provider } from '@/lib/firebase';
-import { observeAuthState } from '@util/api/auth';
+import { checkUserExists, observeAuthState, register } from '@util/api/auth';
 
 const LoginPage = () => {
   const router = useRouter();
@@ -19,6 +19,15 @@ const LoginPage = () => {
   const handleGoogleLogin = async () => {
     try {
       const { user } = await signInWithPopup(auth, provider.google);
+      const isUserExist = await checkUserExists(user.uid);
+      if (!isUserExist) {
+        await register(user.uid, {
+          Nickname: user.displayName,
+          Email: user.email,
+          ProfileImage: user.photoURL,
+        });
+      }
+
       localStorage.setItem('uid', user.uid);
 
       router.push({ pathname: '/login' });

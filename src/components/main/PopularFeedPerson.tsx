@@ -9,7 +9,7 @@ interface Props {
 }
 
 const PopularFeedPerson = ({ post, rank }: Props) => {
-  const { UserId, Records, SelfRating, Comments, Rating, CommentsNum } = post;
+  const { UserId, Records, Comments, comment_count, Rating, SelfRating } = post;
 
   return (
     <Flex gap={8} vertical>
@@ -19,7 +19,7 @@ const PopularFeedPerson = ({ post, rank }: Props) => {
       </Flex>
       <FeedList
         records={Records}
-        ratings={{ value: Rating, count: CommentsNum }}
+        ratings={{ value: Rating, count: comment_count }}
         selfRating={SelfRating}
         comments={Comments}
       />
