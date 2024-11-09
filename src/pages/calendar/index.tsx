@@ -25,10 +25,6 @@ const MyCalendarPage: NextPage = () => {
       <div className='relative min-h-[40px]'>
         {isCalendarVisible ? (
           <>
-            <UpOutlined
-              className='absolute top-[16px] left-[8px] text-lg z-2'
-              onClick={() => setIsCalendarVisible(false)}
-            />
             <Calendar
               onSelect={(date, info) => {
                 if (info.source !== 'date') return;
@@ -36,10 +32,70 @@ const MyCalendarPage: NextPage = () => {
                 router.replace({ hash: date.format('YYYY-MM-DD') }, undefined, { scroll: true });
               }}
               fullscreen={false}
+              headerRender={({ value, type, onChange, onTypeChange }) => {
+                const start = 0;
+                const end = 12;
+                const monthOptions = [];
+
+                let current = value.clone();
+                const months = [];
+                for (let i = start; i < end; i++) {
+                  current = current.month(i);
+                  months.push(`${current.month() + 1}월`);
+                }
+
+                for (let i = start; i < end; i++) {
+                  monthOptions.push(
+                    <Select.Option key={i} value={i} className='month-item'>
+                      {months[i]}
+                    </Select.Option>,
+                  );
+                }
+
+                const year = value.year();
+                const month = value.month();
+                const options = [];
+                for (let i = year - 10; i < year + 10; i += 1) {
+                  options.push(
+                    <Select.Option key={i} value={i} className='year-item'>
+                      {i}
+                    </Select.Option>,
+                  );
+                }
+
+                return (
+                  <Flex justify='space-between' align='center' className='px-2 text-lg mb-2'>
+                    <UpOutlined onClick={() => setIsCalendarVisible(false)} />
+                    <Flex gap={4}>
+                      <Select
+                        size='small'
+                        popupMatchSelectWidth={false}
+                        className='my-year-select'
+                        value={year}
+                        onChange={(newYear) => {
+                          const now = value.clone().year(newYear);
+                          onChange(now);
+                        }}>
+                        {options}
+                      </Select>
+                      <Select
+                        size='small'
+                        popupMatchSelectWidth={false}
+                        value={month}
+                        onChange={(newMonth) => {
+                          const now = value.clone().month(newMonth);
+                          onChange(now);
+                        }}>
+                        {monthOptions}
+                      </Select>
+                    </Flex>
+                  </Flex>
+                );
+              }}
             />
           </>
         ) : (
-          <DownOutlined className='absolute top-[16px] left-[8px] text-lg' onClick={() => setIsCalendarVisible(true)} />
+          <DownOutlined className='text-lg px-2' onClick={() => setIsCalendarVisible(true)} />
         )}
       </div>
       <Flex gap={12} vertical className='flex-1 overflow-y-auto scroll-smooth no-scrollbar'>
