@@ -23,7 +23,7 @@ const FeedList = ({ images, ratings }: Props) => {
           ))}
         </Flex>
         {ratings && (
-          <Flex justify='space-between' align='center' className='text-2xl mt-2'>
+          <Flex justify='space-between' align='center' className='text-2xl mt-2 px-2'>
             <Flex gap={4} align='center' onClick={() => setCommentListId(1)}>
               <StarFilled />
               <Typography.Text>{`${ratings?.value} (${ratings?.count})`}</Typography.Text>

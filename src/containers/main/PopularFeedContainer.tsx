@@ -43,7 +43,7 @@ const PopularFeedContainer = () => {
       <Typography.Title level={3} className='ml-2'>
         {"Today's Oscar"}
       </Typography.Title>
-      <Flex gap={20} vertical className='px-2'>
+      <Flex gap={20} vertical className='mt-2 px-4'>
         {mockData?.map((feed) => <PopularFeedPerson key={feed.id} feed={feed} />)}
       </Flex>
     </div>

@@ -18,7 +18,7 @@ const MenuDrawer = () => {
 
   const handleLogout = async () => {
     await logout();
-    router.replace('/');
+    router.reload();
   };
 
   return (

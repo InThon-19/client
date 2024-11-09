@@ -19,6 +19,7 @@ const LoginPage = () => {
   const handleGoogleLogin = async () => {
     try {
       const { user } = await signInWithPopup(auth, provider.google);
+      console.log(user);
       localStorage.setItem('uid', user.uid);
 
       router.push({ pathname: '/login' });
