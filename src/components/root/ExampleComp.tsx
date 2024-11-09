@@ -1,5 +1,9 @@
+import { Typography } from 'antd';
+
+const Title = Typography.Title;
+
 const ExampleComp = () => {
-  return <h1 className='mt-4'>exampleComp</h1>;
+  return <Title level={1}>ABCD</Title>;
 };
 
 export default ExampleComp;

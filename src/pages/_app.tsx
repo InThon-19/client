@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Layout } from 'antd';
 import { useAtom } from 'jotai';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
@@ -30,15 +30,17 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [setUser]);
 
   return (
-    <main className={`${pretendard.variable} font-pretendard flex justify-center`}>
-      <div className='relative max-w-[480px] w-full'>
-        <QueryClientProvider client={client}>
-          <ConfigProvider theme={theme}>
-            <Component {...pageProps} />
-            <WriteFloatButton />
-          </ConfigProvider>
-        </QueryClientProvider>
-      </div>
-    </main>
+    <QueryClientProvider client={client}>
+      <ConfigProvider theme={theme}>
+        <Layout>
+          <main className={`${pretendard.variable} font-pretendard flex justify-center`}>
+            <div className='relative max-w-[480px] w-full'>
+              <Component {...pageProps} />
+              <WriteFloatButton />
+            </div>
+          </main>
+        </Layout>
+      </ConfigProvider>
+    </QueryClientProvider>
   );
 }
