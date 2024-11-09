@@ -24,7 +24,7 @@ const MenuDrawer = () => {
         <Typography.Text
           className='flex items-center w-full h-10 cursor-pointer'
           onClick={() => router.push({ pathname: '/login' })}>
-          회원가입
+          로그인/회원가입
         </Typography.Text>
       )}
     </Drawer>
