@@ -23,13 +23,13 @@ const FeedList = ({ images, ratings }: Props) => {
           ))}
         </Flex>
         {ratings && (
-          <Flex justify='space-between' align='center' className='text-xl mt-2'>
+          <Flex justify='space-between' align='center' className='text-2xl mt-2'>
             <Flex gap={4} align='center' onClick={() => setCommentListId(1)}>
               <StarFilled />
               <Typography.Text>{`${ratings?.value} (${ratings?.count})`}</Typography.Text>
             </Flex>
             <div className='relative'>
-              <HeartFilled />
+              <HeartFilled className='text-3xl' />
               <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xs'>
                 {ratings?.self}
               </p>
